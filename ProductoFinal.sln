@@ -5,7 +5,7 @@ VisualStudioVersion = 17.2.32616.157
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppMovil.Android", "AppMovil\AppMovil.Android\AppMovil.Android.csproj", "{AD6FF1EB-5F1F-41D2-AC20-B004DDAAA051}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppMovil", "AppMovil\AppMovil\AppMovil.csproj", "{DD2734C2-4DC5-454B-9E98-7EB76A9B3299}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AppMovil", "AppMovil\AppMovil\AppMovil.csproj", "{DD2734C2-4DC5-454B-9E98-7EB76A9B3299}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{5C017B8A-49BD-46C5-AEA5-A57910F59F69}"
 EndProject
@@ -13,9 +13,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Entities\Entiti
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contratos", "Contratos\Contratos.csproj", "{0A68A2A5-633B-4C24-993D-893274813539}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPI", "WebAPI\WebAPI.csproj", "{E541F282-9E55-43C2-9A42-2834ABDBD3C5}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViewModel", "ViewModel\ViewModel.csproj", "{3558062C-AC24-4266-B41C-121808462B9C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPI", "WebAPI\WebAPI.csproj", "{2D06E41A-3655-416C-9236-0AA47A4990C0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,14 +47,14 @@ Global
 		{0A68A2A5-633B-4C24-993D-893274813539}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0A68A2A5-633B-4C24-993D-893274813539}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0A68A2A5-633B-4C24-993D-893274813539}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E541F282-9E55-43C2-9A42-2834ABDBD3C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E541F282-9E55-43C2-9A42-2834ABDBD3C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E541F282-9E55-43C2-9A42-2834ABDBD3C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E541F282-9E55-43C2-9A42-2834ABDBD3C5}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3558062C-AC24-4266-B41C-121808462B9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3558062C-AC24-4266-B41C-121808462B9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3558062C-AC24-4266-B41C-121808462B9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3558062C-AC24-4266-B41C-121808462B9C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D06E41A-3655-416C-9236-0AA47A4990C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D06E41A-3655-416C-9236-0AA47A4990C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D06E41A-3655-416C-9236-0AA47A4990C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D06E41A-3655-416C-9236-0AA47A4990C0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
