@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="AppMovil.Views.Gasolina"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:gas="clr-namespace:ViewModel;assembly=ViewModel">
+    <ContentPage.BindingContext>
+        <gas:GasolinaViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <Picker
+                Title="Estados"
+                ItemDisplayBinding="{Binding Valor}"
+                ItemsSource="{Binding Estados}"
+                SelectedIndex="{Binding EstadoIndex}"
+                SelectedItem="{Binding Estado}" />
+            <Picker
+                Title="Tipo"
+                ItemDisplayBinding="{Binding Valor}"
+                ItemsSource="{Binding Gasolinas}"
+                SelectedIndex="{Binding GasolinaIndex}"
+                SelectedItem="{Binding Gasolina}" />
+            <Button Command="{Binding CommandGasolina}" Text="consultar" />
+            <WebView
+                BackgroundColor="Transparent"
+                HeightRequest="200"
+                HorizontalOptions="FillAndExpand"
+                IsEnabled="True"
+                Source="{Binding Sorce}" />
+            <Image
+                HeightRequest="200"
+                HorizontalOptions="FillAndExpand"
+                Source="{Binding Imagen}" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
