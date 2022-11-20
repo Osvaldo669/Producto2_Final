@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="AppMovil.Views.Moneda"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:modena="clr-namespace:ViewModel;assembly=ViewModel">
+    <ContentPage.BindingContext>
+        <modena:MonedaViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <Entry Keyboard="Numeric" Text="{Binding Money}" />
+            <Picker
+                Title="Moneda a intercambiar"
+                ItemDisplayBinding="{Binding Valor}"
+                ItemsSource="{Binding Monedas}"
+                SelectedItem="{Binding Moneda1}" />
+            <Picker
+                Title="Moneda a intercambiada"
+                ItemDisplayBinding="{Binding Valor}"
+                ItemsSource="{Binding Monedas}"
+                SelectedItem="{Binding Moneda2}" />
+            <Button Command="{Binding CommandIntercambio}" Text="Intercambiar" />
+            <Label
+                Margin="30"
+                FontSize="Body"
+                HorizontalOptions="Center"
+                Text="{Binding Result}" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
