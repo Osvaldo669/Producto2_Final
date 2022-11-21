@@ -63,6 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClimaViewModel.cs" />
+    <Compile Include="FarmaciaviewModel.cs" />
     <Compile Include="GasolinaViewModel.cs" />
     <Compile Include="InicioViewModel.cs" />
     <Compile Include="MonedaViewModel.cs" />
