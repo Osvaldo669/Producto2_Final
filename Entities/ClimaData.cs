@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace DAL
 {
 
-    public class WeatherData
+    public class ClimaData
     {
         public string city_name { get; set; }
         public string state_code { get; set; }
