@@ -64,6 +64,7 @@
   <ItemGroup>
     <Compile Include="ClimaViewModel.cs" />
     <Compile Include="GasolinaViewModel.cs" />
+    <Compile Include="InicioViewModel.cs" />
     <Compile Include="MonedaViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
