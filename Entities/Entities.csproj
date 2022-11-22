@@ -41,8 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AnuncioRecibo.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="ClimaData.cs" />
+    <Compile Include="HistorialVenta.cs" />
     <Compile Include="Moneda.cs" />
     <Compile Include="Pickers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

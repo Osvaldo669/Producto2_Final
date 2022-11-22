@@ -63,11 +63,7 @@ namespace ViewModel
                     Usuario = _user,
                     Contrasena = _contraseña
                 });
-                var BodyEnviar = new StringContent(JsonConvert.SerializeObject(new
-                {
-                    Usuario = _user,
-                    Contrasena = _contraseña
-                }), Encoding.UTF8,"application/json");
+                var BodyEnviar = new StringContent(DatosInicio, Encoding.UTF8,"application/json");
                 HttpResponseMessage responseMessage = await httpClient.PostAsync(URI, BodyEnviar);
                 responseMessage.EnsureSuccessStatusCode();
                 if (responseMessage.IsSuccessStatusCode)

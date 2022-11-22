@@ -1,63 +1,71 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="AppMovil.Views.Farmacia"
-             xmlns:viewModel ="clr-namespace:ViewModel;assembly=ViewModel">
+             x:Class="AppMovil.Views.VentaMedicamentos"
+             xmlns:viewModel ="clr-namespace:ViewModel;assembly=ViewModel"
+             >
     <ContentPage.BindingContext>
         <viewModel:FarmaciaviewModel></viewModel:FarmaciaviewModel>
     </ContentPage.BindingContext>
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Lista Medicamentos"
-                   HorizontalOptions="CenterAndExpand" 
-                   FontSize="Title"
+            <Label Text="Venta de Medicamentos"
+                   HorizontalOptions="CenterAndExpand"
                    TextColor="Black"
-                />
+                   FontSize="Subtitle"
+                   />
 
-           
-            <CollectionView ItemsSource="{Binding MedicamentosLista}">
-                <CollectionView.ItemTemplate>
-                    <DataTemplate>
-                       
-                            <Grid HeightRequest="100"
+            <Picker Title="Seleccione un medicamento"
+                    ItemsSource="{Binding MedicamentosLista}"
+                    SelectedItem="{Binding VentaMed}"
+                    ItemDisplayBinding="{Binding Nombre}"
+                    Margin="10"
+                    ></Picker>
+
+            <Grid HeightRequest="100"
                                   RowDefinitions="400"
                                   Margin="10">
-                                <Image 
+                <Image 
                                    Grid.Row="0"
                                    Grid.Column="0"
                                    WidthRequest="100"
                                    VerticalOptions="Center"
-                                   Source="{Binding Imagen}"
+                                   Source="{Binding VentaMed.Imagen}"
                                 />
 
-                                <StackLayout Grid.Column="1" Grid.Row="0">
-                                    <Label Text="{Binding Nombre}"
+                <StackLayout Grid.Column="1" Grid.Row="0">
+                    <Label Text="{Binding VentaMed.Nombre}"
                                            FontAttributes="Bold"
                                            FontSize="18"
                                            TextColor="Black"/>
-                                    <Label Text="{Binding Presentacion}"   
+                    <Label Text="{Binding VentaMed.Presentacion}"   
                                            FontAttributes="None"
                                            FontSize="13"
                                            VerticalOptions="Start"
                                            TextColor="Black"/>
-                                   
-                                    <Label 
-                                           Text="{Binding Fecha_cad}" 
+
+                    <Label 
+                                           Text="{Binding VentaMed.Fecha_cad}" 
                                            FontAttributes="None"
                                            FontSize="Micro"
                                            TextColor="Black"/>
 
-                                    <Label Text="{Binding Precio, StringFormat='${0:C}'}"
+                    <Label Text="{Binding VentaMed.Precio, StringFormat='Total a Pagar: {0:C}'}"
                                            FontAttributes="Bold"
                                            FontSize="13"
                                            VerticalOptions="Center"
                                            TextColor="Black"/>
-                                </StackLayout>
-                               
-                            </Grid>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
+                </StackLayout>
+
+            </Grid>
+            <Button HorizontalOptions="Center"
+                    Text="Comprar"
+                    TextColor="White"
+                    BackgroundColor="Blue"
+                    WidthRequest="140"
+                    Margin="20"
+                    Command="{Binding VentaCommand}"
+                ></Button>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

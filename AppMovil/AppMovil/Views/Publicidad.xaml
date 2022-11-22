@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppMovil.Views.Publicidad"
+             xmlns:viewModel ="clr-namespace:ViewModel;assembly=ViewModel"
+             >
+    <ContentPage.BindingContext>
+        <viewModel:PublicidadViewModel></viewModel:PublicidadViewModel>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Publicidad"
+                TextColor="Black"
+                   FontSize="Subtitle"
+                HorizontalOptions="CenterAndExpand" />
+
+            <CollectionView ItemsSource="{Binding Anuncios}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame Margin="10"
+                               BorderColor="Black"
+                               >
+                            <StackLayout>
+                                <Label Text="{Binding Titulo}"
+                                       FontSize="Subtitle"
+                                       TextColor="Black"
+                                       FontFamily="Bold"
+                                       ></Label>
+                                <Image Source="{Binding Imagen}"
+                                       WidthRequest="100"
+                                       ></Image>
+                                <Label Text="{Binding Descripcion}" 
+                                       TextColor="Black"
+                                       FontSize="Body"
+                                       ></Label>
+                            </StackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
