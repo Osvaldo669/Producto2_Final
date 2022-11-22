@@ -16,6 +16,7 @@ namespace WebAPI.Controllers
     {
         private readonly IMedicamentos Medi = new MedicamentosAccesoDatos();
 
+
         [HttpGet]
         public async Task<ObservableCollection<Medicamentos>> ObtenerMedicamentos()
         {
@@ -73,5 +74,14 @@ namespace WebAPI.Controllers
             var response = await Medi.Venta(Venta);
             return response;
         }
+
+        [HttpGet]
+        public async Task<ObservableCollection<Venta2>> ObtenerVentas(string id)
+        {
+            ObservableCollection<Venta2> response = await Medi.ObtenerVentas(id);
+            
+            return response;
+        }
+
     }
 }
