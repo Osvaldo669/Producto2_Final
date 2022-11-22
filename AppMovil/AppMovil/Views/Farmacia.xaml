@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppMovil.Views.Farmacia"
+             xmlns:viewModel ="clr-namespace:ViewModel;assembly=ViewModel">
+    <ContentPage.BindingContext>
+        <viewModel:FarmaciaviewModel></viewModel:FarmaciaviewModel>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Lista Medicamentos"
+                   HorizontalOptions="CenterAndExpand" 
+                   FontSize="Title"
+                   TextColor="Black"
+                />
+
+           
+            <CollectionView ItemsSource="{Binding MedicamentosLista}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                       
+                            <Grid HeightRequest="100"
+                                  RowDefinitions="400"
+                                  Margin="10">
+                                <Image 
+                                   Grid.Row="0"
+                                   Grid.Column="0"
+                                   WidthRequest="100"
+                                   VerticalOptions="Center"
+                                   Source="{Binding Imagen}"
+                                />
+
+                                <StackLayout Grid.Column="1" Grid.Row="0">
+                                    <Label Text="{Binding Nombre}"
+                                           FontAttributes="Bold"
+                                           FontSize="18"
+                                           TextColor="Black"/>
+                                    <Label Text="{Binding Presentacion}"   
+                                           FontAttributes="None"
+                                           FontSize="13"
+                                           VerticalOptions="Start"
+                                           TextColor="Black"/>
+                                   
+                                    <Label 
+                                           Text="{Binding Fecha_cad}" 
+                                           FontAttributes="None"
+                                           FontSize="Micro"
+                                           TextColor="Black"/>
+
+                                    <Label Text="{Binding Precio, StringFormat='${0:C}'}"
+                                           FontAttributes="Bold"
+                                           FontSize="13"
+                                           VerticalOptions="Center"
+                                           TextColor="Black"/>
+                                </StackLayout>
+                               
+                            </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -4,6 +4,8 @@
              x:Class="AppMovil.Views.Menu.MenuFlyoutPage"
              xmlns:pages="clr-namespace:AppMovil.Views.Menu"
             xmlns:inicio ="clr-namespace:AppMovil"
+            NavigationPage.HasBackButton="False"
+            NavigationPage.HasNavigationBar="False"
             >
   <FlyoutPage.Flyout>
     <pages:MenuFlyoutPageFlyout x:Name="FlyoutPage" />

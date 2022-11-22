@@ -33,8 +33,17 @@ namespace AppMovil.Views.Menu
             {
                 MenuItems = new ObservableCollection<MenuFlyoutPageFlyoutMenuItem>(new[]
                 {
+
                     new MenuFlyoutPageFlyoutMenuItem { Id = 0, Title = "Gasolina", TargetType = typeof(Gasolina) },
                     new MenuFlyoutPageFlyoutMenuItem { Id = 1, Title = "Moneda", TargetType = typeof(Moneda) },
+                    new MenuFlyoutPageFlyoutMenuItem { Id = 2, Title = "Clima", TargetType=typeof(Clima) },
+                    new MenuFlyoutPageFlyoutMenuItem { Id = 3, Title = "Medicamentos Lista", TargetType=typeof(Farmacia) },
+                    new MenuFlyoutPageFlyoutMenuItem { Id = 4, Title = "Medicamentos Nombre", TargetType=typeof(MedicamentoNombre) },
+                    new MenuFlyoutPageFlyoutMenuItem { Id = 5, Title = "Medicamentos Presentacion", TargetType=typeof(MedicamentosPresentacion) },
+                    new MenuFlyoutPageFlyoutMenuItem { Id = 6, Title = "Medicamentos Caducidad", TargetType=typeof(MedicamentosCaducidad) },
+                    new MenuFlyoutPageFlyoutMenuItem { Id = 7, Title = "Venta Medicamento", TargetType=typeof(VentaMedicamentos) },
+                    new MenuFlyoutPageFlyoutMenuItem { Id = 8, Title = "Historial", TargetType=typeof(Historial) },
+                    new MenuFlyoutPageFlyoutMenuItem { Id = 9, Title = "Publicidad", TargetType=typeof(Publicidad) },
                 });
             }
 

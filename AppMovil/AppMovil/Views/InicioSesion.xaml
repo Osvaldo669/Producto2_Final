@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppMovil.Views.InicioSesion"
+             xmlns:viewModel ="clr-namespace:ViewModel;assembly=ViewModel"
+             xmlns:menu ="clr-namespace:AppMovil.Views.Menu"
+             >
+    <ContentPage.BindingContext>
+        <viewModel:InicioViewModel></viewModel:InicioViewModel>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="INICIAR SESION"
+                   Margin="20"
+                   TextColor="Black"
+                   FontSize="Title"
+                   HorizontalOptions="CenterAndExpand" />
+
+            <Frame Margin="10">
+                <StackLayout>
+                    <Entry Placeholder="Usuario"
+                           Margin="10"
+                           Text="{Binding User}"
+                           ></Entry>
+                    <Entry Placeholder="Contraseña" 
+                           IsPassword="True"
+                           Margin="10"
+                           Text="{Binding Contraseña}"
+                           ></Entry>
+                    <Button Text="Iniciar Sesion"
+                            BackgroundColor="Green"
+                            TextColor="White"
+                            Command="{Binding Logueo}"
+                            CommandParameter="{x:Type menu:MenuFlyoutPage}"
+                            >
+                        
+                    </Button>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

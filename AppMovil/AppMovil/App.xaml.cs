@@ -1,4 +1,5 @@
-﻿using AppMovil.Views.Menu;
+﻿using AppMovil.Views;
+using AppMovil.Views.Menu;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -11,11 +12,12 @@ namespace AppMovil
         {
             InitializeComponent();
 
-            MainPage = new MenuFlyoutPage();
+            MainPage = new NavigationPage(new InicioSesion());
         }
 
         protected override void OnStart()
         {
+
         }
 
         protected override void OnSleep()
