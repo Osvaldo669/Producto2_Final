@@ -23,9 +23,9 @@ namespace DAL
             Cadena = ConfigurationManager.ConnectionStrings["SQl"].ConnectionString;
         }
 
-        public async Task<ObservableCollection<Anuncios>> ObtenerAnuncios()
+        public async Task<ObservableCollection<AnucioRecibo>> ObtenerAnuncios()
         {
-            ObservableCollection<Anuncios> anuncios = null;
+            ObservableCollection<AnucioRecibo> anuncios = null;
 
             using (Conn = new SqlConnection(Cadena))
             {
@@ -40,10 +40,10 @@ namespace DAL
                         {
                             if (render.HasRows)
                             {
-                                anuncios = new ObservableCollection<Anuncios>();
+                                anuncios = new ObservableCollection<AnucioRecibo>();
                                 while (render.Read())
                                 {
-                                    anuncios.Add(new Anuncios
+                                    anuncios.Add(new AnucioRecibo
                                     {
                                         Anuncio_id = Convert.ToInt32(render["anuncio_id"]),
                                         Descripcion = render["descripcion"].ToString(),

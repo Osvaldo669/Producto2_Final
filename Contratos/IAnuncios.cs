@@ -11,6 +11,6 @@ namespace Contratos
     public interface IAnuncios
     {
 
-        Task<ObservableCollection<Anuncios>> ObtenerAnuncios();
+        Task<ObservableCollection<AnucioRecibo>> ObtenerAnuncios();
     }
 }

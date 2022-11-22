@@ -25,49 +25,27 @@ namespace WebAPI.Controllers
         }
 
         [HttpGet]
-        public async Task<dynamic> ObtenerMedicamentosNombre(string id)
+        public async Task<ObservableCollection<Medicamentos>> ObtenerMedicamentosNombre(string id)
         {
             var response = await Medi.ObtenerMedicamentosNombre(id);
 
-            if (response == null)
-            {
-                return new HttpResponseMessage
-                {
-                    StatusCode = HttpStatusCode.NoContent
-                };
-            }
             return response;
         }
 
         [HttpGet]
-        public async Task<dynamic> ObtenerMedicamentosPresentacion(string id)
+        public async Task<ObservableCollection<Medicamentos>> ObtenerMedicamentosPresentacion(string id)
         {
             var response = await Medi.ObtenerMedicamentoPresentacion(id);
-
-            if (response == null)
-            {
-                return new HttpResponseMessage
-                {
-                    StatusCode = HttpStatusCode.NoContent
-                };
-            }
             return response;
         }
 
         [HttpGet]
-        public async Task<dynamic> ObtenerMedicamentosCaducidad(string id, string id2)
+        public async Task<ObservableCollection<Medicamentos>> ObtenerMedicamentosCaducidad(string id, string id2)
         {
             var response = await Medi.ObtenerMedicamentoCaducidad(id, id2);
-
-            if (response == null)
-            {
-                return new HttpResponseMessage
-                {
-                    StatusCode = HttpStatusCode.NoContent
-                };
-            }
             return response;
         }
+
         [HttpPost]
         public async Task<dynamic> Venta([FromBody] Venta Venta)
         {
