@@ -214,6 +214,57 @@ namespace DAL
             }
         }
 
+        public async Task<ObservableCollection<Venta2>> ObtenerVentas(string fecha)
+        {
+            ObservableCollection<Venta2> ventas = null;
+
+            using (Conn = new SqlConnection(Cadena))
+            {
+                try
+                {
+                    using (var command = Conn.CreateCommand())
+                    {
+                        command.CommandText = "ObtenerVenta";
+                        command.CommandType = System.Data.CommandType.StoredProcedure;
+                        command.Parameters.AddWithValue("@fecha", fecha);
+                        await Conn.OpenAsync();
+                        using (SqlDataReader render = await command.ExecuteReaderAsync())
+                        {
+                            if (render.HasRows)
+                            {
+                                ventas = new ObservableCollection<Venta2>();
+                                while (render.Read())
+                                {
+                                    ventas.Add(new Venta2
+                                    {
+                                        venta_id = Convert.ToInt32(render["venta_id"]),
+                                        cantidad = Convert.ToInt32(render["cantidad"]),
+                                        fecha_venta = Convert.ToDateTime(render["fecha_venta"]),
+                                        producto = new Medicamentos
+                                        {
+                                            Nombre = render["nombre"].ToString(),
+                                            Fecha_cad = Convert.ToDateTime(render["fecha_cad"]),
+                                            Imagen = render["imagen"].ToString(),
+                                            Precio = Convert.ToDouble(render["precio"]),
+                                            Presentacion = render["presentacion"].ToString(),
+                                            Producto_id = Convert.ToInt32(render["producto_id"])
+                                        },
+                                        total_venta = Convert.ToDecimal(render["total_venta"])
+                                    });
+                                }
+                                Conn.Close();
+                            }
+                        }
+                    };
+                }
+                catch (Exception)
+                {
+                    Conn.Close();
+                }
+                return ventas;
+            }
+        }
+
         public async Task<bool> Venta(Venta Venta)
         {
             bool bandera = false;

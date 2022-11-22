@@ -15,5 +15,6 @@ namespace Contratos
         Task<ObservableCollection<Medicamentos>> ObtenerMedicamentoPresentacion(string Presentacion);
         Task<ObservableCollection<Medicamentos>> ObtenerMedicamentoCaducidad(string Inicio, string Fin );
         Task<bool> Venta(Venta Venta);
+        Task<ObservableCollection<Venta2>> ObtenerVentas(string fecha);
     }
 }
