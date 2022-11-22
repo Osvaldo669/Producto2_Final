@@ -1,28 +1,37 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="AppMovil.Views.Farmacia"
+             x:Class="AppMovil.Views.MedicamentosCaducidad"
              xmlns:viewModel ="clr-namespace:ViewModel;assembly=ViewModel">
     <ContentPage.BindingContext>
         <viewModel:FarmaciaviewModel></viewModel:FarmaciaviewModel>
     </ContentPage.BindingContext>
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Lista Medicamentos"
-                   HorizontalOptions="CenterAndExpand" 
-                   FontSize="Title"
-                   TextColor="Black"
-                />
-
-           
-            <CollectionView ItemsSource="{Binding MedicamentosLista}">
+            <Label Text="Fecha Inicio" TextColor="Black" FontSize="Body"></Label>
+            <DatePicker
+                Date="{Binding FechaInicio}"
+                MinimumDate="2015,01,01"
+                TextColor="Black"
+                Margin="10"
+                ></DatePicker>
+            <Label Text="Fecha Final" TextColor="Black" FontSize="Body"></Label>
+            <DatePicker
+                    Date="{Binding Fechafinal}"
+                    MinimumDate="{Binding FechaInicio}"
+                    TextColor="Black"
+                    Margin="10"
+                    ></DatePicker>
+            <Button Text="Buscar" Margin="10"
+                    Command="{Binding ObtenerCaducidad}"
+                    ></Button>
+            <CollectionView ItemsSource="{Binding Caducidad}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                       
-                            <Grid HeightRequest="100"
+                        <Grid HeightRequest="100"
                                   RowDefinitions="400"
                                   Margin="10">
-                                <Image 
+                            <Image 
                                    Grid.Row="0"
                                    Grid.Column="0"
                                    WidthRequest="100"
@@ -30,31 +39,31 @@
                                    Source="{Binding Imagen}"
                                 />
 
-                                <StackLayout Grid.Column="1" Grid.Row="0">
-                                    <Label Text="{Binding Nombre}"
+                            <StackLayout Grid.Column="1" Grid.Row="0">
+                                <Label Text="{Binding Nombre}"
                                            FontAttributes="Bold"
                                            FontSize="18"
                                            TextColor="Black"/>
-                                    <Label Text="{Binding Presentacion}"   
+                                <Label Text="{Binding Presentacion}"   
                                            FontAttributes="None"
                                            FontSize="13"
                                            VerticalOptions="Start"
                                            TextColor="Black"/>
-                                   
-                                    <Label 
+
+                                <Label 
                                            Text="{Binding Fecha_cad}" 
                                            FontAttributes="None"
                                            FontSize="Micro"
                                            TextColor="Black"/>
 
-                                    <Label Text="{Binding Precio, StringFormat='${0:C}'}"
+                                <Label Text="{Binding Precio, StringFormat='${0:C}'}"
                                            FontAttributes="Bold"
                                            FontSize="13"
                                            VerticalOptions="Center"
                                            TextColor="Black"/>
-                                </StackLayout>
-                               
-                            </Grid>
+                            </StackLayout>
+
+                        </Grid>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>

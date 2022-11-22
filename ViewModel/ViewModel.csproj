@@ -65,9 +65,11 @@
     <Compile Include="ClimaViewModel.cs" />
     <Compile Include="FarmaciaviewModel.cs" />
     <Compile Include="GasolinaViewModel.cs" />
+    <Compile Include="HistorialViewModel.cs" />
     <Compile Include="InicioViewModel.cs" />
     <Compile Include="MonedaViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PublicidadViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

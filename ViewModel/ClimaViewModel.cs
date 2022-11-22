@@ -76,7 +76,7 @@ namespace ViewModel
 
         async void ObtenerClimaPuebla()
         {
-            const string apiKey = "397da9eab94a4a8f8eb211fecab1e67a"; //Cuenta OsvaldoGS
+            const string apiKey = "397da9eab94a4a8f8eb211fecab1e67a";
             
             const string URI = "https://api.weatherbit.io/v2.0/forecast/daily?";
             const string Uri2 = "https://www.googleapis.com/youtube/v3/search?part=snippet&q=";
