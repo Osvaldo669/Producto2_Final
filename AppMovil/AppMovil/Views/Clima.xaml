@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppMovil.Views.Clima"
+             xmlns:viewModel ="clr-namespace:ViewModel;assembly=ViewModel"
+             xmlns:maps ="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+             >
+    <ContentPage.BindingContext>
+        <viewModel:ClimaViewModel></viewModel:ClimaViewModel>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <Button Text="Clima Puebla" Command="{Binding llamarClima}"></Button>
+                <SearchBar Placeholder="Buscar por Coordenadas"
+                           SearchCommand="{Binding BuscarCiudad}"
+                           Text="{Binding Coordenadas}"
+                           ></SearchBar>
+
+                <Label Text="{Binding Dataclima.city_name}" HorizontalOptions="Center" TextColor="Black" FontSize="20" ></Label>
+                <Label Text="Clima del Dia" HorizontalOptions="Start" Margin="10" TextColor="Black" FontSize="18"></Label>
+                <StackLayout HorizontalOptions="Center">
+                    <Label Text="{Binding Dataclima.data[0].temp}" TextColor="Black" FontSize="16" ></Label>
+                    <Image Source="{Binding Dataclima.data[0].weather.icon, StringFormat='https://www.weatherbit.io/static/img/icons/{0}.png'}"
+                           HeightRequest="100"
+                           ></Image>
+                    <Label Text="{Binding Dataclima.data[0].weather.description}" TextColor="Black" FontSize="16" ></Label>
+                    
+                </StackLayout>
+                <Label Text="Clima de los siguiente dias" TextColor="Black" FontSize="18" Margin="5"></Label>
+                <CollectionView ItemsSource="{Binding Dataclima.data}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame  BorderColor="Black">
+                                <StackLayout Orientation="Horizontal" Margin="2">
+                                    <Label Text="{Binding max_temp, StringFormat='{0}°C'}" TextColor="Black" FontSize="15" VerticalOptions="Center"></Label>
+                                    <Image Source="{Binding weather.icon, StringFormat='https://www.weatherbit.io/static/img/icons/{0}.png'}"
+                                       HeightRequest="100"
+                                       ></Image>
+                                    <Label Text="{Binding datetime}" TextColor="Black" FontSize="15" VerticalOptions="Center" ></Label>
+                                    <Label Text="{Binding weather.description, StringFormat='Estado: {0}'}" TextColor="Black" FontSize="15" VerticalOptions="Center" ></Label>
+                                </StackLayout>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+                <Label Text="Videos" TextColor="Black" FontSize="Subtitle" VerticalOptions="Center" ></Label>
+                <CollectionView ItemsSource="{Binding Videos.items}" Margin="10" HeightRequest="200" >
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout Orientation="Horizontal" ItemSpacing="10"  ></LinearItemsLayout>
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame>
+                                <WebView HeightRequest="200" 
+                                     WidthRequest="200" 
+                                     Margin="10" 
+                                     HorizontalOptions="Center"
+                                     Source="{Binding id.videoId, StringFormat='https://www.youtube.com/embed/{0}'}"
+                                 ></WebView>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+                <Label Text="Mapa" HorizontalOptions="Center" FontSize="Subtitle" TextColor="Black"></Label>
+                <Frame HeightRequest="300" VerticalOptions="Start">
+                    <ContentView Content="{Binding Mapa}"></ContentView>
+                </Frame>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
